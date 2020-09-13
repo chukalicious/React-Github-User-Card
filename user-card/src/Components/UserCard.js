@@ -2,11 +2,17 @@ import React from "react";
 
 class UserCard extends React.Component {
   render() {
-    console.log("props passed to userCard component", this.props);
+    console.log("props passed to userCard component", this.props.user);
     return (
       <div>
-        <h2>This is the UserCard component</h2>
-        <h3>Username: </h3>
+        <h2>User Info: </h2>
+        <div>
+          <img src={this.props.user.avatar_url} />
+        </div>
+        <h3>username: {this.props.user.login}</h3>
+        <h3>email: {this.props.user.email}</h3>
+        <h3>location: {this.props.user.location}</h3>
+        <h3>name: {this.props.user.name}</h3>
       </div>
     );
   }

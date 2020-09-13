@@ -12,7 +12,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log("CDM!");
     axios
       .get("https://api.github.com/users/chukalicious")
       .then((res) => this.setState({ userInfo: res.data }))
@@ -20,11 +19,10 @@ class App extends React.Component {
   }
 
   render() {
-    console.log("data from inside the render() in App", this.state.data);
     return (
       <div>
-        <h1>This is the App Component</h1>
-        <UserCard user={this.state} />
+        <h1>Github User Card</h1>
+        <UserCard user={this.state.userInfo} />
       </div>
     );
   }

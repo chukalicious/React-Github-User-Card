@@ -25,8 +25,10 @@ class App extends React.Component {
         axios.spread((...responses) => {
           const responseOne = responses[0];
           const responseTwo = responses[1];
-          console.log("Response one:", responseOne);
-          console.log("Response Two:", responseTwo.data);
+          console.log("User Data:", responseOne.data);
+          this.setState({ userInfo: responseOne.data });
+          console.log("Following data:", responseTwo.data);
+          this.setState({ followersInfo: responseTwo.data });
           // use/access the results
         })
       )
@@ -40,7 +42,10 @@ class App extends React.Component {
     return (
       <div>
         <h1>Github User Card</h1>
-        <UserCard user={this.state.userInfo} />
+        <UserCard
+          user={this.state.userInfo}
+          followers={this.state.followersInfo}
+        />
       </div>
     );
   }
